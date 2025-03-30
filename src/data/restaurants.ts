@@ -1,0 +1,117 @@
+
+import { Restaurant } from '@/types';
+
+export const restaurants: Restaurant[] = [
+  {
+    id: '1',
+    name: 'Burger Haven',
+    description: 'Gourmet burgers made with premium ingredients. Our beef is locally sourced and our buns are baked fresh daily.',
+    cuisine: 'American',
+    image: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?q=80&w=1000&auto=format&fit=crop',
+    rating: 4.7,
+    deliveryTime: 25,
+    deliveryFee: 2.99,
+    priceRange: '$$',
+    address: '123 Main St, Anytown, USA',
+    isNew: false,
+    featured: true
+  },
+  {
+    id: '2',
+    name: 'Pizza Paradise',
+    description: 'Authentic Italian pizzas cooked in a wood-fired oven. We use imported Italian ingredients for that true Naples flavor.',
+    cuisine: 'Italian',
+    image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1000&auto=format&fit=crop',
+    rating: 4.5,
+    deliveryTime: 35,
+    deliveryFee: 1.99,
+    priceRange: '$$',
+    address: '456 Oak St, Anytown, USA',
+    isNew: false,
+    featured: true
+  },
+  {
+    id: '3',
+    name: 'Sushi Supreme',
+    description: 'Fresh, high-quality sushi and Japanese dishes. Our fish is delivered daily to ensure maximum freshness.',
+    cuisine: 'Japanese',
+    image: 'https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=1000&auto=format&fit=crop',
+    rating: 4.8,
+    deliveryTime: 40,
+    deliveryFee: 3.99,
+    priceRange: '$$$',
+    address: '789 Pine St, Anytown, USA',
+    isNew: true,
+    featured: true
+  },
+  {
+    id: '4',
+    name: 'Taco Time',
+    description: 'Authentic Mexican street tacos and more. Our recipes have been passed down through generations.',
+    cuisine: 'Mexican',
+    image: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?q=80&w=1000&auto=format&fit=crop',
+    rating: 4.2,
+    deliveryTime: 20,
+    deliveryFee: 0,
+    priceRange: '$',
+    address: '321 Elm St, Anytown, USA',
+    isNew: false,
+    featured: false
+  },
+  {
+    id: '5',
+    name: 'Pasta Palace',
+    description: 'Handmade pasta and traditional Italian sauces. Family-owned restaurant with recipes from the old country.',
+    cuisine: 'Italian',
+    image: 'https://images.unsplash.com/photo-1523301343968-6a6ebf63c672?q=80&w=1000&auto=format&fit=crop',
+    rating: 4.6,
+    deliveryTime: 30,
+    deliveryFee: 2.49,
+    priceRange: '$$',
+    address: '567 Maple St, Anytown, USA',
+    isNew: false,
+    featured: false
+  },
+  {
+    id: '6',
+    name: 'Thai Delight',
+    description: 'Authentic Thai cuisine with bold flavors and fresh ingredients. Our chefs are trained in traditional Thai cooking methods.',
+    cuisine: 'Thai',
+    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop',
+    rating: 4.4,
+    deliveryTime: 35,
+    deliveryFee: 2.99,
+    priceRange: '$$',
+    address: '890 Cedar St, Anytown, USA',
+    isNew: true,
+    featured: false
+  },
+  {
+    id: '7',
+    name: 'Indian Spice',
+    description: 'Traditional Indian curries and tandoori specialties. Our spice blends are imported directly from India.',
+    cuisine: 'Indian',
+    image: 'https://images.unsplash.com/photo-1505253758473-96b7015fcd40?q=80&w=1000&auto=format&fit=crop',
+    rating: 4.3,
+    deliveryTime: 40,
+    deliveryFee: 1.99,
+    priceRange: '$$',
+    address: '432 Birch St, Anytown, USA',
+    isNew: false,
+    featured: false
+  },
+  {
+    id: '8',
+    name: 'Veggie Delight',
+    description: 'Plant-based dishes that are delicious and nutritious. We use organic produce and sustainable practices.',
+    cuisine: 'Vegetarian',
+    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=1000&auto=format&fit=crop',
+    rating: 4.1,
+    deliveryTime: 25,
+    deliveryFee: 0,
+    priceRange: '$$',
+    address: '765 Walnut St, Anytown, USA',
+    isNew: false,
+    featured: false
+  }
+];
