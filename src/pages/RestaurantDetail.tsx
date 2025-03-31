@@ -6,8 +6,9 @@ import { MenuSection } from '@/components';
 import { restaurants } from '@/data/restaurants';
 import { getRestaurantMenu } from '@/data/menu';
 import { Restaurant, MenuCategory } from '@/types';
-import { Star, Clock, CircleDollarSign, MapPin } from 'lucide-react';
+import { Star, Clock, MapPin, IndianRupee } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { convertToINR, formatCurrency } from '@/utils/currency';
 
 const RestaurantDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -46,6 +47,9 @@ const RestaurantDetail = () => {
     );
   }
 
+  // Convert delivery fee to INR
+  const deliveryFeeInr = convertToINR(restaurant.deliveryFee);
+
   const scrollToCategory = (categoryId: string) => {
     setActiveCategory(categoryId);
     const element = document.getElementById(categoryId);
@@ -79,13 +83,13 @@ const RestaurantDetail = () => {
                 <span>{restaurant.deliveryTime} min</span>
               </div>
               <div className="flex items-center">
-                <CircleDollarSign className="w-4 h-4 mr-1" />
+                <IndianRupee className="w-4 h-4 mr-1" />
                 <span>{restaurant.priceRange}</span>
               </div>
               <div>
                 {restaurant.deliveryFee === 0 
                   ? 'Free delivery' 
-                  : `$${restaurant.deliveryFee.toFixed(2)} delivery`}
+                  : `${formatCurrency(deliveryFeeInr)} delivery`}
               </div>
             </div>
           </div>

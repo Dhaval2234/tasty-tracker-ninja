@@ -3,14 +3,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Star, Clock, DollarSign } from 'lucide-react';
+import { Star, Clock, DollarSign, IndianRupee } from 'lucide-react';
 import { Restaurant } from '@/types';
+import { convertToINR, formatCurrency } from '@/utils/currency';
 
 interface RestaurantCardProps {
   restaurant: Restaurant;
 }
 
 const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
+  // Convert delivery fee to INR
+  const deliveryFeeInr = convertToINR(restaurant.deliveryFee);
+
   return (
     <Link to={`/restaurants/${restaurant.id}`}>
       <Card className="overflow-hidden restaurant-card">
@@ -43,13 +47,13 @@ const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
               <span>{restaurant.deliveryTime} min</span>
             </div>
             <div className="flex items-center text-xs">
-              <DollarSign className="w-3 h-3 mr-1 text-muted-foreground" />
+              <IndianRupee className="w-3 h-3 mr-1 text-muted-foreground" />
               <span>{restaurant.priceRange}</span>
             </div>
             <div className="text-xs">
               {restaurant.deliveryFee === 0 
                 ? 'Free delivery' 
-                : `$${restaurant.deliveryFee.toFixed(2)} delivery`}
+                : `${formatCurrency(deliveryFeeInr)} delivery`}
             </div>
           </div>
         </CardContent>

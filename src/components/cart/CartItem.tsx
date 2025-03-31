@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Minus, Plus, X } from 'lucide-react';
 import { useCart } from '@/hooks/use-cart';
 import { CartItem as CartItemType } from '@/types';
+import { convertToINR, formatCurrency } from '@/utils/currency';
 
 interface CartItemProps {
   item: CartItemType;
@@ -22,6 +23,9 @@ const CartItem = ({ item }: CartItemProps) => {
   const handleRemove = () => {
     removeFromCart(item.id);
   };
+
+  // Convert price to INR
+  const itemTotalInr = convertToINR(item.price * item.quantity);
 
   return (
     <div className="flex items-start py-4 border-b last:border-0">
@@ -69,7 +73,7 @@ const CartItem = ({ item }: CartItemProps) => {
               <Plus className="w-3 h-3" />
             </Button>
           </div>
-          <span className="font-medium">${(item.price * item.quantity).toFixed(2)}</span>
+          <span className="font-medium">{formatCurrency(itemTotalInr)}</span>
         </div>
       </div>
     </div>

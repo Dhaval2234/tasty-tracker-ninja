@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useCart } from '@/hooks/use-cart';
+import { convertToINR, formatCurrency } from '@/utils/currency';
 
 const CartSummary = () => {
   const { cart } = useCart();
@@ -16,6 +17,12 @@ const CartSummary = () => {
   const tax = subtotal * 0.07; // Assuming 7% tax
   const total = subtotal + deliveryFee + tax;
 
+  // Convert to INR
+  const inrSubtotal = convertToINR(subtotal);
+  const inrDeliveryFee = convertToINR(deliveryFee);
+  const inrTax = convertToINR(tax);
+  const inrTotal = convertToINR(total);
+
   const isCartEmpty = cart.items.length === 0;
 
   return (
@@ -25,20 +32,20 @@ const CartSummary = () => {
       <div className="space-y-2">
         <div className="flex justify-between">
           <span className="text-muted-foreground">Subtotal</span>
-          <span>${subtotal.toFixed(2)}</span>
+          <span>{formatCurrency(inrSubtotal)}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">Delivery Fee</span>
-          <span>${deliveryFee.toFixed(2)}</span>
+          <span>{formatCurrency(inrDeliveryFee)}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">Tax</span>
-          <span>${tax.toFixed(2)}</span>
+          <span>{formatCurrency(inrTax)}</span>
         </div>
         <div className="pt-2 mt-2 border-t">
           <div className="flex justify-between font-semibold">
             <span>Total</span>
-            <span>${total.toFixed(2)}</span>
+            <span>{formatCurrency(inrTotal)}</span>
           </div>
         </div>
       </div>

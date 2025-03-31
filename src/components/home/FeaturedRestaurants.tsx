@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Star } from 'lucide-react';
 import { restaurants } from '@/data/restaurants'; 
+import { convertToINR, formatCurrency } from '@/utils/currency';
 
 const FeaturedRestaurants = () => {
   // Show only the top 4 highest rated restaurants
@@ -25,41 +26,48 @@ const FeaturedRestaurants = () => {
           </Link>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {featuredRestaurants.map((restaurant) => (
-            <Link key={restaurant.id} to={`/restaurants/${restaurant.id}`}>
-              <Card className="overflow-hidden restaurant-card">
-                <div className="relative h-48">
-                  <img
-                    src={restaurant.image}
-                    alt={restaurant.name}
-                    className="object-cover w-full h-full"
-                  />
-                  {restaurant.isNew && (
-                    <Badge className="absolute top-2 right-2 bg-food-accent text-food-dark">
-                      New
-                    </Badge>
-                  )}
-                </div>
-                <CardContent className="p-4">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <h3 className="font-semibold">{restaurant.name}</h3>
-                      <p className="text-sm text-muted-foreground">{restaurant.cuisine}</p>
-                    </div>
-                    <div className="flex items-center">
-                      <Star className="w-4 h-4 mr-1 fill-food-accent text-food-accent" />
-                      <span className="text-sm font-medium">{restaurant.rating.toFixed(1)}</span>
-                    </div>
+          {featuredRestaurants.map((restaurant) => {
+            // Convert delivery fee to INR
+            const deliveryFeeInr = convertToINR(restaurant.deliveryFee);
+            
+            return (
+              <Link key={restaurant.id} to={`/restaurants/${restaurant.id}`}>
+                <Card className="overflow-hidden restaurant-card">
+                  <div className="relative h-48">
+                    <img
+                      src={restaurant.image}
+                      alt={restaurant.name}
+                      className="object-cover w-full h-full"
+                    />
+                    {restaurant.isNew && (
+                      <Badge className="absolute top-2 right-2 bg-food-accent text-food-dark">
+                        New
+                      </Badge>
+                    )}
                   </div>
-                  <div className="flex items-center mt-2 text-xs text-muted-foreground">
-                    <span>{restaurant.deliveryTime} min</span>
-                    <span className="mx-1">•</span>
-                    <span>{restaurant.deliveryFee === 0 ? 'Free delivery' : `$${restaurant.deliveryFee.toFixed(2)} delivery`}</span>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
+                  <CardContent className="p-4">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h3 className="font-semibold">{restaurant.name}</h3>
+                        <p className="text-sm text-muted-foreground">{restaurant.cuisine}</p>
+                      </div>
+                      <div className="flex items-center">
+                        <Star className="w-4 h-4 mr-1 fill-food-accent text-food-accent" />
+                        <span className="text-sm font-medium">{restaurant.rating.toFixed(1)}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center mt-2 text-xs text-muted-foreground">
+                      <span>{restaurant.deliveryTime} min</span>
+                      <span className="mx-1">•</span>
+                      <span>{restaurant.deliveryFee === 0 
+                        ? 'Free delivery' 
+                        : `${formatCurrency(deliveryFeeInr)} delivery`}</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

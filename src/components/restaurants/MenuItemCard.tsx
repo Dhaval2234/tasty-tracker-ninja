@@ -6,6 +6,7 @@ import { Plus } from 'lucide-react';
 import { useCart } from '@/hooks/use-cart';
 import { MenuItem } from '@/types';
 import { useToast } from '@/components/ui/use-toast';
+import { convertToINR, formatCurrency } from '@/utils/currency';
 
 interface MenuItemCardProps {
   menuItem: MenuItem;
@@ -35,6 +36,9 @@ const MenuItemCard = ({ menuItem, restaurantId, restaurantName }: MenuItemCardPr
     });
   };
 
+  // Convert price to INR
+  const priceInr = convertToINR(menuItem.price);
+
   return (
     <Card className="overflow-hidden menu-item">
       <div className="flex flex-col sm:flex-row">
@@ -44,7 +48,7 @@ const MenuItemCard = ({ menuItem, restaurantId, restaurantName }: MenuItemCardPr
             {menuItem.description}
           </p>
           <div className="flex items-center justify-between mt-3">
-            <span className="font-semibold">${menuItem.price.toFixed(2)}</span>
+            <span className="font-semibold">{formatCurrency(priceInr)}</span>
             <Button 
               onClick={handleAddToCart} 
               size="sm" 
