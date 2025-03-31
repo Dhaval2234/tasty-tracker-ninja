@@ -119,7 +119,7 @@ export const restaurants: Restaurant[] = [
     name: 'Taj Mahal Flavors',
     description: 'Authentic Indian cuisine with rich flavors and traditional cooking techniques. Our spices are imported directly from different regions of India.',
     cuisine: 'Indian',
-    image: 'https://images.unsplash.com/photo-1585937421612-70a008356c36?q=80&w=1000&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1548013146-72479768bca8?q=80&w=1000&auto=format&fit=crop',
     rating: 4.9,
     deliveryTime: 35,
     deliveryFee: 2.99,
