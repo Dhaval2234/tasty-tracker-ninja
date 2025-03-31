@@ -1,4 +1,3 @@
-
 import { MenuItem, MenuCategory } from '@/types';
 
 export const getBurgerHavenMenu = (): MenuCategory[] => {
@@ -253,6 +252,114 @@ export const getSushiSupremeMenu = (): MenuCategory[] => {
   ];
 };
 
+export const getTajMahalFlavorsMenu = (): MenuCategory[] => {
+  return [
+    {
+      id: 'curries',
+      name: 'Curries',
+      items: [
+        {
+          id: 'curry1',
+          name: 'Butter Chicken',
+          description: 'Tender chicken cooked in a rich, creamy tomato sauce with butter and aromatic spices',
+          price: 13.99,
+          image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1000&auto=format&fit=crop',
+          category: 'curries'
+        },
+        {
+          id: 'curry2',
+          name: 'Paneer Tikka Masala',
+          description: 'Fresh cottage cheese cubes in a spiced tomato-based sauce with bell peppers and onions',
+          price: 12.99,
+          image: 'https://images.unsplash.com/photo-1618889482923-38250401a84e?q=80&w=1000&auto=format&fit=crop',
+          category: 'curries'
+        },
+        {
+          id: 'curry3',
+          name: 'Chicken Vindaloo',
+          description: 'Spicy curry with tender chicken, potatoes, and a tangy sauce with vinegar and hot spices',
+          price: 14.99,
+          image: 'https://images.unsplash.com/photo-1545247181-516773cae754?q=80&w=1000&auto=format&fit=crop',
+          category: 'curries'
+        }
+      ]
+    },
+    {
+      id: 'tandoori',
+      name: 'Tandoori Specialties',
+      items: [
+        {
+          id: 'tandoori1',
+          name: 'Tandoori Chicken',
+          description: 'Chicken marinated in yogurt and spices, then roasted in a clay oven',
+          price: 15.99,
+          image: 'https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?q=80&w=1000&auto=format&fit=crop',
+          category: 'tandoori'
+        },
+        {
+          id: 'tandoori2',
+          name: 'Seekh Kebab',
+          description: 'Minced lamb mixed with herbs and spices, then grilled on skewers',
+          price: 16.99,
+          image: 'https://images.unsplash.com/photo-1673918079899-5f8f33525193?q=80&w=1000&auto=format&fit=crop',
+          category: 'tandoori'
+        }
+      ]
+    },
+    {
+      id: 'bread',
+      name: 'Indian Breads',
+      items: [
+        {
+          id: 'bread1',
+          name: 'Garlic Naan',
+          description: 'Soft, leavened bread topped with fresh garlic and butter, baked in a tandoor oven',
+          price: 3.99,
+          image: 'https://images.unsplash.com/photo-1626697556620-8656939c6666?q=80&w=1000&auto=format&fit=crop',
+          category: 'bread'
+        },
+        {
+          id: 'bread2',
+          name: 'Plain Roti',
+          description: 'Whole wheat flatbread, traditionally baked in a tandoor',
+          price: 2.99,
+          image: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=1000&auto=format&fit=crop',
+          category: 'bread'
+        },
+        {
+          id: 'bread3',
+          name: 'Butter Naan',
+          description: 'Soft leavened flatbread brushed with melted butter',
+          price: 3.49,
+          category: 'bread'
+        }
+      ]
+    },
+    {
+      id: 'desserts',
+      name: 'Desserts',
+      items: [
+        {
+          id: 'dessert1',
+          name: 'Gulab Jamun',
+          description: 'Deep-fried milk solids soaked in sugar syrup flavored with cardamom and rose water',
+          price: 4.99,
+          image: 'https://images.unsplash.com/photo-1627628506216-0cde1bc99ad1?q=80&w=1000&auto=format&fit=crop',
+          category: 'desserts'
+        },
+        {
+          id: 'dessert2',
+          name: 'Rasmalai',
+          description: 'Soft cottage cheese dumplings soaked in sweetened, thickened milk flavored with cardamom',
+          price: 5.99,
+          image: 'https://images.unsplash.com/photo-1658518885090-bad15d70c8a5?q=80&w=1000&auto=format&fit=crop',
+          category: 'desserts'
+        }
+      ]
+    }
+  ];
+};
+
 export const getRestaurantMenu = (restaurantId: string): MenuCategory[] => {
   switch (restaurantId) {
     case '1':
@@ -261,6 +368,8 @@ export const getRestaurantMenu = (restaurantId: string): MenuCategory[] => {
       return getPizzaParadiseMenu();
     case '3':
       return getSushiSupremeMenu();
+    case '9':
+      return getTajMahalFlavorsMenu();
     default:
       return [];
   }

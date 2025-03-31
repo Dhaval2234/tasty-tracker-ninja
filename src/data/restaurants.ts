@@ -113,5 +113,19 @@ export const restaurants: Restaurant[] = [
     address: '765 Walnut St, Anytown, USA',
     isNew: false,
     featured: false
+  },
+  {
+    id: '9',
+    name: 'Taj Mahal Flavors',
+    description: 'Authentic Indian cuisine with rich flavors and traditional cooking techniques. Our spices are imported directly from different regions of India.',
+    cuisine: 'Indian',
+    image: 'https://images.unsplash.com/photo-1585937421612-70a008356c36?q=80&w=1000&auto=format&fit=crop',
+    rating: 4.9,
+    deliveryTime: 35,
+    deliveryFee: 2.99,
+    priceRange: '$$',
+    address: '42 Spice Lane, Anytown, USA',
+    isNew: true,
+    featured: true
   }
 ];
